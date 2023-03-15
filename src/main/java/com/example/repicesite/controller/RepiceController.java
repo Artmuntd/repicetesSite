@@ -17,5 +17,8 @@ public class RepiceController {
     public Repice getRepice(@PathVariable("id") int id) {
       return  recipeService.getRepice(id);
  }
-   @PostMapping
+   @PostMapping()
+    public Repice addRecipe(@RequestBody Repice repice){
+        return recipeService.addRepice(repice);
+   }
 }
