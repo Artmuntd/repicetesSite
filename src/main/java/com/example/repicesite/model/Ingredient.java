@@ -9,6 +9,7 @@ import lombok.Data;
 public class Ingredient {
 
     private final int id;
+    private final Ingredient ingredient;
     private  String title;
     private  int quantity;
     private String measure;
@@ -16,7 +17,7 @@ public class Ingredient {
 
     public Ingredient(int id, Ingredient ingredient) {
         this.id = id;
-        Ingredient ingredients = ingredient;
+         this.ingredient = ingredient;
 
     }
 }
