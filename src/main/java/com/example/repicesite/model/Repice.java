@@ -4,7 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
-
+@Data
+@AllArgsConstructor
 
 public class Repice {
     private final int id;
@@ -14,19 +15,22 @@ public class Repice {
     private List<String> steps;
 
 
-    public Repice(int id, String name, int timeCooking, List<Ingredient> ingredients, List<String> steps) {
+
+    public Repice(int id, Repice recipe) {
         this.id = id;
+       this.name = recipe.name;
+       this.timeCooking = recipe.timeCooking;
+       this.ingredients = recipe.ingredients;
+       this.steps = recipe.steps;
+    }
+
+    public Repice(String name, int timeCooking, List<Ingredient> ingredients, List<String> steps) {
+        this.id = -1;
         this.name = name;
         this.timeCooking = timeCooking;
         this.ingredients = ingredients;
         this.steps = steps;
     }
-
-    public Repice(int id, Repice recipes) {
-        this.id = id;
-        Repice repices = recipes;
-    }
-
 
     public int getId() {
         return id;

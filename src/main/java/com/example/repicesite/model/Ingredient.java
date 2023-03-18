@@ -14,11 +14,11 @@ public class Ingredient {
     private String measure;
 
 
-    public Ingredient(int id, Ingredient ingredient) {
-        this.id = id;
-        this.title = ingredient.title;
-        this.measure =ingredient.measure;
-        this.quantity= ingredient.quantity;
-
-    }
+//    public Ingredient(int id, Ingredient ingredient) {
+//        this.id = id;
+//        this.title = ingredient.title;
+//        this.measure =ingredient.measure;
+//        this.quantity= ingredient.quantity;
+//
+//    }
 }
