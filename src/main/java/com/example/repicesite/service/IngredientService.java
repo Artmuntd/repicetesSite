@@ -14,13 +14,13 @@ public class IngredientService {
 
     public  Ingredient addIngredient (Ingredient ingredient){
         int id = idCounter++;
-        Ingredient ingredients = new Ingredient(id,ingredient, ingredient.getTitle(), ingredient.getQuantity(), ingredient.getMeasure());
+        Ingredient ingredients = new Ingredient(id,ingredient.getTitle(),ingredient.getQuantity(),ingredient.getMeasure());
         ingredientMap.put(id,ingredients);
 
 
-        return (Ingredient) ingredientMap;
+        return ingredients;
     }
     public  Ingredient getIngredient (int id){
-      return  (Ingredient) ingredientMap;
+      return  ingredientMap.get(id);
     }
 }
