@@ -17,7 +17,6 @@ public class IngredientService {
         Ingredient ingredients = new Ingredient(id,ingredient.getTitle(),ingredient.getQuantity(),ingredient.getMeasure());
         ingredientMap.put(id,ingredients);
 
-
         return ingredients;
     }
     public  Ingredient getIngredient (int id){
