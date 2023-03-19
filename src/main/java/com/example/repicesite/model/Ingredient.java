@@ -3,22 +3,42 @@ package com.example.repicesite.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
-@AllArgsConstructor
+
 
 public class Ingredient {
 
-    private final int id;
     private  String title;
     private  int quantity;
     private String measure;
 
 
-//    public Ingredient(int id, Ingredient ingredient) {
-//        this.id = id;
-//        this.title = ingredient.title;
-//        this.measure =ingredient.measure;
-//        this.quantity= ingredient.quantity;
-//
-//    }
+    public Ingredient(String title, int quantity, String measure) {
+        this.title = title;
+        this.quantity = quantity;
+        this.measure = measure;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getMeasure() {
+        return measure;
+    }
+
+    public void setMeasure(String measure) {
+        this.measure = measure;
+    }
 }
