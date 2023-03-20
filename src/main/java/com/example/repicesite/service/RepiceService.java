@@ -11,12 +11,12 @@ public class RepiceService {
     private  int idCounter = 0;
     private final Map<Integer, Repice> repiceMap = new HashMap<>();
 
-    public Repice  addRepice( Repice recipe){
+    public Repice   addRepice( Repice recipe){
         int id = idCounter++;
         repiceMap.put(id, recipe);
+    return recipe;
 
 
-        return new Repice(id, recipe);
     }
 
     public  Repice getRepice (int id){
