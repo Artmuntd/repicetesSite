@@ -1,20 +1,13 @@
 package com.example.repicesite.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-
-
 public class Ingredient {
-
     private  String title;
-    private  int quantity;
-    private String measure;
+    private  int number;
+    private  String measure;
 
-
-    public Ingredient(String title, int quantity, String measure) {
+    public Ingredient(String title, int number, String measure) {
         this.title = title;
-        this.quantity = quantity;
+        this.number = number;
         this.measure = measure;
     }
 
@@ -26,12 +19,12 @@ public class Ingredient {
         this.title = title;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getNumber() {
+        return number;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public String getMeasure() {

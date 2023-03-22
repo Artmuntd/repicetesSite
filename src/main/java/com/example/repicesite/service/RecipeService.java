@@ -1,25 +1,27 @@
 package com.example.repicesite.service;
 
-import com.example.repicesite.dto.RecipeDto;
-import com.example.repicesite.model.Repice;
+import com.example.repicesite.dto.RecipeDTO;
+import com.example.repicesite.model.Recipe;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class RecipeService {
-    private  int idCounter = 0;
-    private final Map<Integer, Repice> repiceMap = new HashMap<>();
+    private int idCounter = 0;
 
-    public RecipeDto addRipece(Repice repice){
-        int id = idCounter++;
-        repiceMap.put(id, repice);
-        return RecipeDto.from(id, repice);
+    private final Map<Integer, Recipe> recipes = new HashMap<>();
+    public RecipeDTO addRecipe(Recipe recipe){
+      int id = idCounter++;
+      recipes.put(id, recipe);
+      return  RecipeDTO.from(id, recipe);
     }
 
-    public  RecipeDto getRecipe(int id){
-        Repice repice = repiceMap.get(id);
-        if ( repice != null){
-            return  RecipeDto.from(id,repice);
+    public RecipeDTO getRecipe(int id) {
+        Recipe recipe = recipes.get(id);
+        if (recipe != null){
+            return  RecipeDTO.from(id, recipe);
         }
         return  null;
     }
