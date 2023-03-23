@@ -2,6 +2,7 @@ package com.example.repicesite.controller;
 
 import com.example.repicesite.model.Ingredient;
 import com.example.repicesite.service.IngredientService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,5 +21,12 @@ public class IngridientController {
     @PostMapping()
     public  Ingredient addIngridient(@RequestBody Ingredient ingredient){
         return  ingredientService.addIngredient(ingredient);
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteIngredient(@PathVariable int id){
+        if(ingredientService.deleteIngredient(id)){
+            return ResponseEntity.ok().build();
+        }
+        return  ResponseEntity.notFound().build();
     }
 }

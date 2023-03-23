@@ -22,4 +22,14 @@ public class IngredientService {
     public  Ingredient getIngredient (int id){
       return  ingredientMap.get(id);
     }
+
+    public boolean  deleteIngredient(int id){
+        for (Ingredient ingredient : ingredientMap.values()){
+            if(ingredientMap.containsKey(id)){
+                ingredientMap.remove(id);
+                return  true;
+            }
+        }
+        return false;
+    }
 }
