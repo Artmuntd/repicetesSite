@@ -20,5 +20,15 @@ Content-Type:  application/json
 ]
 }
 
+###
+POST  http://localhost:8080/ingridient
+Content-Type:  application/json
+
+{
+  "title":"test1",
+  "quantity": 2,
+  "measure": "piece"
+
+}
 
 
