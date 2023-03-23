@@ -8,25 +8,17 @@ import java.util.HashMap;
 import java.util.Map;
 @Service
 public class RepiceService {
-    private  int idCounter = 0;
+    private int idCounter = 0;
     private final Map<Integer, Repice> repiceMap = new HashMap<>();
 
-    public Repice   addRepice( Repice recipe){
+    public Repice addRepice(Repice recipe) {
         int id = idCounter++;
+        recipe.setId(id);
         repiceMap.put(id, recipe);
-    return recipe;
-
-
+        return recipe;
     }
 
-    public  Repice getRepice (int id){
-        Repice repice = repiceMap.get(id);
-        if ( repice != null) {
-            return new Repice(id, repice);
-        }
-        return null;
+    public Repice getRepice(int id) {
+        return repiceMap.get(id);
     }
-
-
-
 }

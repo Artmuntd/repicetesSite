@@ -1,9 +1,6 @@
-GET  http://localhost:8080/recipe/
-###
-GET  http://localhost:8080/recipe/2
+GET http://localhost:8080/
 ###
 
-###
 POST http://localhost:8080/recipe
 Content-Type:  application/json
 
