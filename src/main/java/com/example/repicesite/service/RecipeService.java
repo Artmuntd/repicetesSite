@@ -11,6 +11,7 @@ public class RecipeService {
     private int idCounter = 0;
 
     private Map<Integer, Recipe> recipes = new HashMap<>();
+
     public RecipeDTO addRecipe(Recipe recipe){
       int id = idCounter++;
       recipes.put(id, recipe);
