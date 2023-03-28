@@ -54,9 +54,6 @@ public class FilesCntroller {
         return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 
 
-
-
-
     }
     @PostMapping(value = "/importIngredient", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public  ResponseEntity<Void> uploadDataFileIngredient(@RequestParam MultipartFile file){
@@ -68,12 +65,7 @@ public class FilesCntroller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-
-
-
-
 
     }
 }
