@@ -67,6 +67,7 @@ public class RecipeService {
         if( deleteRecipe == null){
             throw new RecipeNotFound();
         }
+        saveToFile();
       return  RecipeDTO.from(id, deleteRecipe);
     }
     public  void deleteAllRecipe(){

@@ -1,11 +1,12 @@
 package com.example.repicesite.service;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
+@Service
 public class FileServiceIngredient  implements com.example.repicesite.FileServiceIngredient {
     @Value("${path.to.ingedients.file}")
     private String ingedientsFillePath;

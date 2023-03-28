@@ -6,11 +6,12 @@ import com.example.repicesite.model.Recipe;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.*;
 
-
+@Service
 public class IngridientService {
 
  final  private  FileServiceIngredient fileServiceIngredient;
@@ -51,10 +52,11 @@ public class IngridientService {
     public IngredientDTO updateIngridient(int id, Ingredient ingredient) {
         Ingredient pathIngridient = ingredients.get(id);
         if(pathIngridient == null){
-            saveToFile();
+
            return  null;
         }
         ingredients.put(id,ingredient);
+        saveToFile();
         return  IngredientDTO.from(id, ingredient);
     }
     public IngredientDTO deleteById(int id) {
@@ -62,6 +64,7 @@ public class IngridientService {
         if( deleteIngredient == null){
             throw new RecipeNotFound();
         }
+        saveToFile();
         return  IngredientDTO.from(id, deleteIngredient);
     }
     public  void deleteAllRecipe(){
