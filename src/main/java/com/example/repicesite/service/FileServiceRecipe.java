@@ -3,6 +3,7 @@ package com.example.repicesite.service;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -33,8 +34,12 @@ public class FileServiceRecipe implements com.example.repicesite.FileServiceReci
             throw new RuntimeException(e);
         }
     }
+    @Override
+    public File getDatafile(){
+        return  new File(recipeFillePath + "/" + recipeFileName);
+    }
 
-    private boolean CleanDataFile() {
+    public boolean CleanDataFile() {
 
         try {
             Path path = Path.of(recipeFillePath, recipeFileName);
