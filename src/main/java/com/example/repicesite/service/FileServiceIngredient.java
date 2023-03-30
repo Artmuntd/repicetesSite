@@ -36,7 +36,7 @@ public class FileServiceIngredient  implements com.example.repicesite.FileServic
         }
     }
 
-    private boolean CleanDataFile() {
+    public boolean CleanDataFile() {
 
         try {
             Path path = Path.of(ingedientsFillePath, ingedientsFileName);
