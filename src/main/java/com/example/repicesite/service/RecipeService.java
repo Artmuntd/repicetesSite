@@ -5,9 +5,12 @@ import com.example.repicesite.model.Recipe;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
 import java.util.*;
 @Service
 public class RecipeService {
@@ -47,8 +50,15 @@ public class RecipeService {
 
     public List<RecipeDTO> getAllRecipes() {
         List<RecipeDTO> result = new ArrayList<>();
-       for(Map.Entry<Integer,Recipe> entry: recipes.entrySet()){
-           result.add(RecipeDTO.from(entry.getKey(),entry.getValue()));       }
+        for (Map.Entry<Integer, Recipe> entry : recipes.entrySet()) {
+            try {
+                result.add(RecipeDTO.from(entry.getKey(), entry.getValue()));
+            } catch (NullPointerException e) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Рецепт с id " + entry.getKey() + " не найден");
+            } catch (IllegalArgumentException e) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Рецепт  не найден " + entry.getKey() );
+            }
+        }
         return result;
     }
 
