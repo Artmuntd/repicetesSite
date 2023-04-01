@@ -22,4 +22,6 @@ public class Recipe {
     public void setTitle(String title) {
         StringUtils.isBlank(title);
     }
+
+
 }

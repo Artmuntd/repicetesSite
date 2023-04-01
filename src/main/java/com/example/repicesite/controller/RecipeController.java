@@ -1,6 +1,7 @@
 package com.example.repicesite.controller;
 
 import com.example.repicesite.dto.RecipeDTO;
+import com.example.repicesite.model.Ingredient;
 import com.example.repicesite.model.Recipe;
 import com.example.repicesite.service.RecipeService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -17,9 +18,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
-@RestController
 @RequestMapping("/recipe")
 @Tag(name = "Рецепты", description = "Поиск, удаление, добавление рецептов.")
 public class RecipeController {
@@ -94,4 +97,33 @@ private  final RecipeService recipeService;
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/downloadRecipes")
+    public String downloadRecipes() {
+        List<RecipeDTO> recipes = recipeService.getAllRecipes();
+
+        StringBuilder sb = new StringBuilder();
+
+        for (RecipeDTO recipe : recipes) {
+            sb.append(recipe.getTitle()).append("\n\n");
+            sb.append("Время приготовления: ").append(recipe.getCookingTime()).append("\n\n");
+            sb.append("Ингредиенты:\n");
+
+            for (Ingredient ingredient : recipe.getIngredients()) {
+                sb.append(ingredient).append("\n");
+            }
+
+            sb.append("\nИнструкция приготовления:\n\n").append(recipe.getSteps()).append("\n\n");
+        }
+
+        try {
+            File file = new File("recipes.txt");
+            FileWriter writer = new FileWriter(file);
+            writer.write(sb.toString());
+            writer.close();
+            return "Рецепты успешно скачаны в файл recipes.txt";
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Ошибка при скачивании рецептов";
+        }
+    }
 }

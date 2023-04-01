@@ -2,7 +2,6 @@ package com.example.repicesite.controller;
 
 
 import com.example.repicesite.dto.IngredientDTO;
-import com.example.repicesite.dto.RecipeDTO;
 import com.example.repicesite.model.Ingredient;
 import com.example.repicesite.model.Recipe;
 import com.example.repicesite.service.IngridientService;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
 @RequestMapping("/ingridient")
 @Tag(name = "Ингридиенты", description = "Поиск, удаление, добавление ингридиентов.")
 public class IngridientController {
