@@ -46,4 +46,6 @@ public class RecipeDTO {
     public  static  RecipeDTO from(int id, Recipe recipe){
         return new RecipeDTO(id, recipe.getTitle(), recipe.getCookingTime(), recipe.getIngredients(),recipe.getSteps());
     }
+
+
 }
